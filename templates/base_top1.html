@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block top %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="http://127.0.0.1:8000/"><h1>NoteZones</h1></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right" method="post" action="" id="navbar-form">{% csrf_token %}
+        <div class="form-group">
+          <input type="text" placeholder="Email" class="form-control" name="email" id="email" value="{{ email }}">
+          {{ form.email.errors }}
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control" name="password" id="password" value="{{ password }}">
+          {{ form.password.errors }}
+        </div>
+        <button type="submit" class="btn btn-success btn-default active" value="login" form="navbar-form">Log in</button>
+        <button type="submit" class="btn btn-primary btn-default active" formaction="http://127.0.0.1:8000/submit/">Submit</button>
+        {% if form.errors %}
+          <p style="color:white;">
+            Log in failed, it havn't your account!
+            If you are a new user, please submit it...
+          </p>
+        {% endif %}
+
+        {% block fail_home %}
+        {% endblock %}
+
+        {% block fail_guide %}
+        {% endblock %}
+
+      </form>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+{% endblock %}
+

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block top %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="http://127.0.0.1:8000/home/"><h1>NoteZones</h1></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right" method="post" action="" id="navbar-form">{% csrf_token %}
+        <div class="form-group">
+          
+        </div>
+        <div class="form-group">
+          <a href="http://127.0.0.1:8000/content/" style="color:white;" >{{ username }}</a>&nbsp&nbsp&nbsp&nbsp
+        </div>
+        <a href="http://127.0.0.1:8000/content/"><button type="button" class="btn btn-primary btn-default active" >return</button></a>&nbsp&nbsp&nbsp&nbsp
+        <button type="submit" class="btn btn-default btn-default active" formaction="/logout/" data-loading-text="Loading..." form="navbar-form">Log out</button>
+      </form>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+{% endblock %}
+
+{% block home %}
+<div class="jumbotron">
+	<div class="container">
+		<img src="/static/img/photo.png" alt="photo" width="70%" height="100%" align="left">
+		<h1>Welcome to your visited!</h1>
+		<p align="right">This is a amazing zone. That name is "NoteZones". When you open your brower, you always search anything. Even thought you focused to study in your goal, sometimes it a glimpse of imformation in the future. Now, to "NoteZones" that help you collection.</p>
+		<div class="learn">
+			<p><a class="btn btn-primary btn-lg" href="http://127.0.0.1:8000/content_guide/" role="button">Learn more &raquo;</a></p>
+		</div>
+		<hr/>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block share %}
+<nav class="navbar navbar-bottom">
+	<div class="container">
+		<div class="share-icons">
+			<div class="navbar-right">
+				<p>&copy; Copyrigth 2015 NoteZones <br/>Ltd. corporation company</p>
+			</div>
+			<h5><b>Share to...</b></h5>
+			<a href="http://www.facebook.com/" shape="circle"><img src="/static/img/fb_icon.png" alt="fb" width="3%" height="3%" hspace="3" /></a>
+			<a href="http://www.twitter.com/"><img src="/static/img/twitter_icon.png" alt="twr" width="3%" height="3%" hspace="3" /></a>
+			<a href="http://www.linkedin.com/"><img src="/static/img/linkedin_icon.png" alt="linki" width="3%" height="3%" hspace="3" /></a>
+			<a href="http://plus.google.com/"><img src="/static/img/google_plus.png" alt="goplu" width="3%" height="3%" hspace="3" /></a>
+			<a href="http://www.blogger.com/"><img src="/static/img/blogger_icon.png" alt="blog" width="3%" height="3%" hspace="3" /></a>
+			<a href="http://www.pinterest.com/"><img src="/static/img/pinterest_icon.png" alt="pinte" width="3%" height="3%" hspace="3" /></a>
+			<a href="http://www.instagram.com/"><img src="/static/img/instagram_icon.png" alt="intsa" width="3%" height="3%" hspace="3" /></a>
+			<a href="http://www.flickr.com/"><img src="/static/img/flickr_icon.png" alt="flic" width="3%" height="3%" hspace="3" /></a>
+			<a href="http://www.youtube.com/"><img src="/static/img/youtube_icon.png" alt="yube" width="3%" height="3%" hspace="3" /></a>
+		</div>
+	</div>
+</nav>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link href="/static/bootstrap/css/css_by_self/content.css" rel="stylesheet">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="http://127.0.0.1:8000/home/"><h1>NoteZones</h1></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+    	<form class="navbar-form navbar-right" name="content" id="content" method="post" action="" >{% csrf_token %}
+    		<div class="form-group" style="color:white;" >
+    			Hi, {{ username }} &nbsp&nbsp&nbsp&nbsp
+    		</div>
+    		<!--button type="button" class="btn btn-primary btn-default active" formation="">Active</button-->
+    		<!--button type="button" class="btn btn-success btn-default active" formation="">Done</button-->&nbsp&nbsp&nbsp&nbsp
+    		<button type="submit" class="btn btn-default btn-default" data-loading-text="Loading..." formaction="/logout/" form="content" >Log out</button>
+    	</form>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+
+<!-- The content -->
+<div class="container-fluid">
+	<!-- Example row of columns -->
+	<div class="row">
+		<div class="col-xs-12">
+			<!--iframe src="http://shinychang.net/article/542d510265dd204503e125bc" align="center" width="800" height="800" scrolling="yes" ></iframe-->
+			{% if username %}
+        {% include "detail.html" %}
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block share %}
+<!--link href="/static/bootstrap/css/css_by_self/content.css" rel="stylesheet" -->
+<div align="middle">
+  <form method="post" action="" id="comment" class="form-inline" enctype="multipart/form-data" role="form">{% csrf_token %}
+  <!--div class="well"-->
+    <div class="form-group">
+      <label class="" for="id_sentence">text</label>
+      {{ form.sentence }}
+    </div>
+    <div class="form-group">
+      <label class="" for="id_anyfile">file input</label>
+      {{ form.anyfile }}
+    </div>
+    <div class="form-group">
+      <label class="" for="id_https">http</label>
+      {{ form.https }}
+    </div>
+    <button type="submit" class="btn btn-default" name="comment" form="comment">Sure</button>
+    <button type="reset" class="btn btn-default" name="comment" form="comment">Clear</button>
+    <!--/div-->
+    <!--textarea class="form-control" rows="3" placeholder="fill in text or drag to move file in here..." name="comment" align="center" draggable="auto" ></textarea-->
+  </form>
+</div>
+{% endblock %}

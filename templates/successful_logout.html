@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block top %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="http://127.0.0.1:8000/"><h1>NoteZones</h1></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right">
+        <!--button type="submit" class="btn btn-default btn-default active" formaction="http://127.0.0.1:8000">back</button-->
+      </form>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+{% endblock %}
+
+{% block guide %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="wrapper">
+      <meta http-equiv="refresh" content="3 ; url=http://127.0.0.1:8000/">
+      <h1 align="center">Successfully!</h1>
+      <h1 align="center">Log out......</h1>
+      <h3 align="center">Please waiting 3 seconds. <br/>If it have not done, <a href="http://127.0.0.1:8000/" class="button">Click here</a></h3>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block share %}
+<nav class="navbar navbar-bottom">
+  <div class="container">
+    <div class="share-icons">
+      <div class="navbar-right">
+        <p>&copy; Copyrigth 2015 NoteZones <br/>Ltd. corporation company</p>
+      </div>
+    </div>
+  </div>
+</nav>
+{% endblock %}

@@ -1,0 +1,25 @@
+<div contenteditable="false" >
+	{% for pics in photo %}
+	<div class="col-xs-2">
+		<form method="post" action="{% url 'detail_delete' pics.pk %}" id="{{ pics.pk }}" >{% csrf_token %}
+
+			{% if pics.sentence %}
+				<h3><p class="greentitle"> {{ pics.sentence }} </p><h6>{{ pics.time }}</h6></h3>
+			{% endif %}
+
+			{% if pics.https %}
+				<a href="{{ pics.https }}" target="_blank" > {{ pics.https }} </a>
+			{% endif %}
+
+			{% if pics.anyfile %}
+				<a href="{{ pics.anyfile.url }}" class="thumbnail" target="_blank" >
+					<img src="{{ pics.anyfile.url }}" alt="Kittens"></img>
+				</a>
+			{% endif %}
+
+			<input type="submit" value="delete" class="btn btn-danger" form="{{ pics.pk }}" />
+			<hr/>
+		</form>
+	</div>
+	{% endfor %}
+</div>
